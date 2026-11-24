@@ -1,0 +1,11 @@
+{
+  "tracks": [
+    "website",
+    "brand"
+  ],
+  "website": {
+    "platform": "emdash",
+    "frontend": "astro",
+    "host": "cloudflare"
+  }
+}
