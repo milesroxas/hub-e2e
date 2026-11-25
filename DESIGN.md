@@ -69,11 +69,11 @@ One paragraph on what the product is for and how the interface serves that. Name
 
 ## Shell
 
-The shell follows the tracks in `.design-hub/project.json`: a product draws `AppShell` (sidebar, top bar, content), a website draws `SiteShell` (header and footer, with a pre-footer when the design treats one as a global), and brand collateral has no shell. Record, per track the project has, what `miles-design-hub` collected so it is built once and never asked again:
+The shell follows the tracks in `.design-hub/project.json`. A website draws `SiteShell` (header and footer, with a pre-footer when the design treats one as a global), and brand collateral has no shell. Recorded by `miles-design-hub` at setup, so it is built once and never asked again:
 
-- **Product:** the link to each Paper frame that holds the sidebar and top bar, or "from the sample".
-- **Website:** the link to each Paper frame that holds the header, footer and pre-footer, or "from the sample".
-- **Where it is built:** `kit/shell.ts` (brand, navigation, people) and `AppShell.tsx` or `SiteShell.tsx`. A prototype never rebuilds the shell inside its own folder.
+- **Website:** `SiteShell`, from the sample (`prototypes/sample-page`). No Paper frames hold the header, footer or pre-footer yet; add their links here when a comp exists.
+- **Brand:** no shell. Collateral is drawn on fixed-size artboards (`prototypes/sample-social`).
+- **Where it is built:** `kit/shell.ts` (brand, navigation, people) and `kit/SiteShell.tsx`. A prototype never rebuilds the shell inside its own folder.
 
 ## Brand
 
