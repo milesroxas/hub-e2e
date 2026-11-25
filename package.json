@@ -25,10 +25,12 @@
     "visual-match": "design-hub visual-match",
     "elyx": "design-hub elyx",
     "skills": "design-hub skills",
-    "commands": "design-hub commands"
+    "commands": "design-hub commands",
+    "signin": "design-hub signin",
+    "share": "design-hub share"
   },
   "dependencies": {
-    "@milesroxas/design-hub": "^0.3.0",
+    "@milesroxas/design-hub": "^0.4.1",
     "motion": "^14.6.0",
     "react": "^19.3.1",
     "react-dom": "^19.3.1"

@@ -1,2 +1,2 @@
 minimumReleaseAgeExclude:
-  - '@milesroxas/design-hub@0.3.0'
+  - '@milesroxas/design-hub@0.3.0 || 0.4.1'

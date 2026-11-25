@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@milesroxas/design-hub':
-        specifier: ^0.3.0
-        version: 0.3.0(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
+        specifier: ^0.4.1
+        version: 0.4.1(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
       motion:
         specifier: ^14.6.0
         version: 14.14.0(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
@@ -114,8 +114,8 @@ packages:
   '@fontsource-variable/geist@5.3.0':
     resolution: {integrity: sha512-j0m+vLQuG5XAYoHtGCVu0spvlGreR3EzpECUVzkFmI1mTVnAO38l/NEPDCFgZ177JxzYJCLSmTQibIiYPilGrA==}
 
-  '@milesroxas/design-hub@0.3.0':
-    resolution: {integrity: sha512-cbzdKkZplVImXke3OLMKOUKvk4bcChA+nSR/Hm+mpu0g/PRBNlWbtXb7TlYiwH+oPw5aRvJWUsBwP0/WQx8OCw==}
+  '@milesroxas/design-hub@0.4.1':
+    resolution: {integrity: sha512-a3pAK2peu/a24lEmhzF9Ce9QEfIc7/yMPT/Cw3+tPsQKtXLENUSdY6y5HCiB/75cbgzxjTGZAo6jZVeTS84erA==}
     engines: {node: '>=22.18'}
     hasBin: true
     peerDependencies:
@@ -813,7 +813,7 @@ snapshots:
 
   '@fontsource-variable/geist@5.3.0': {}
 
-  '@milesroxas/design-hub@0.3.0(react-dom@19.3.1(react@19.3.1))(react@19.3.1)':
+  '@milesroxas/design-hub@0.4.1(react-dom@19.3.1(react@19.3.1))(react@19.3.1)':
     dependencies:
       '@biomejs/biome': 2.6.3
       '@fontsource-variable/geist': 5.3.0
