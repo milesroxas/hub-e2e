@@ -1,11 +1,13 @@
 ---
 name: miles-review
-description: "Work from review comments on the deployed prototypes: pull them into the repo, sort them by state and kind, act on each, resolve them, and manage who may comment. Load when the user mentions comments, feedback, review notes, a reviewer, an invite link, or asks what the client said. Triggers on: comments, feedback, review notes, client notes, what did they say, reviewer, invite, people, revoke, resolve, triage, pnpm comments, pnpm people."
+description: "Work from review comments on the deployed prototypes: pull them into the repo, sort them by state and kind, act on each, resolve them, and manage who may comment. Load when the user mentions comments, feedback, review notes, a reviewer, a sign-in link, or asks what the client said. Triggers on: comments, feedback, review notes, client notes, what did they say, reviewer, add someone, invite, sign-in link, new link, people, revoke, resolve, triage, pnpm comments, pnpm people."
 ---
 
 # Review
 
 Each comment is pinned to a prototype, its state (the URL and every dial value) and, usually, an element. The repo gets them as `docs/sprints/<feature>/comments.md`, grouped by README state, then by kind. That file is generated: read it, never edit it, and close comments in the store.
+
+Each thread line starts with its number, as the panel shows it, and its audience: `- #3 (internal) Ed (Studio): ...` or `- #4 (client-facing) Rae (Acme): ...`. A number is fixed and never reused, so gaps are normal. An internal thread is the studio's own note and no client ever sees it; a client-facing one is read by everyone, Studio's replies in it included.
 
 ## Working from comments
 
@@ -24,15 +26,17 @@ Each comment is pinned to a prototype, its state (the URL and every dial value) 
    ```
    Why taste waits: one reviewer's preference, built at once, overwrites a decision the team made and the next reviewer argues the other way. The user decides taste; bugs and copy are not taste.
 4. **Resolve** with `pnpm comments resolve <id>`, or in the panel, only once the change is live. Why: a reviewer who opens a resolved comment and still sees the old state stops trusting the list.
-5. **Report** to the user: what was fixed, by comment id; the taste calls waiting for them; any comment with no state.
+5. **Report** to the user: what was fixed, by number and comment id; the taste calls waiting for them; any comment with no state. Say which threads were internal, because the client never saw those.
 
 ## People
 
-- Every person is **Studio** or **Client**. Both comment, reply, edit their own words, and resolve or reopen any thread. Studio also deletes any comment, sorts comments and invites people; a Client deletes only their own. The studio's team are Studio; everyone on the client's side is Client, the default.
+- Every person is **Studio** or **Client**. Both comment, reply, edit their own words, and resolve or reopen any thread they can see. A Client sees client-facing threads only; Studio sees all, internal ones included. A thread's audience never changes: to tell the client what an internal thread says, Studio writes a new client-facing comment in the panel. Never paste internal words into a client-facing one without the user's say. Studio also deletes any comment, sorts comments and manages people; a Client deletes only their own. The studio's team are Studio; everyone on the client's side is Client, the default.
 - **Team** is the company: `Studio`, or the client's name. It shows beside every name, so a reviewer reads who said what.
-- The first Studio person comes from `pnpm people invite --name <n> --team <t> --kind studio --site <url>`; after that, Studio invites from the People tab.
-- A link works for 14 days. `pnpm people reissue <id>` replaces it and signs that person out everywhere; `revoke` ends their access on their next page load.
-- Never paste an invite link into a commit, a document, a ticket or a comment. Why: anyone holding it signs in as that person.
+- The first Studio person comes from `pnpm people add --name <n> --team <t> --kind studio --site <url>`; after that, Studio adds people from the People tab.
+- A link signs in one device, then stops working; unused, it lasts 14 days. `pnpm people link <id>` gives another for another device, `sign-out <id>` ends every session and gives one new link, and `revoke <id>` ends their access everywhere within five minutes. `miles-deploy` holds the rest: access length, the handover.
+- Never paste a link into a commit, a document, a ticket or a comment. Why: whoever opens it first signs in as that person.
+
+- A project that shared before one-time links lost its people and comments in the move: the new store starts empty. `miles-deploy` has the steps; comments pulled before stay in `comments.md`.
 
 ## The words in comments
 
